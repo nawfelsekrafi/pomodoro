@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+
+:root {
+    --background-root: rgb(244,244,244);
+    --background-card: rgb(255,255,255);
+    --button-color-light: rgb(118,118,118);
+    --svg-color: rgb(217,217,217);
+    --button-hover-light: rgb(244,244,244);
+}
+
+body{
+    background-color: var(--background-root);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    padding:0px;
+    margin: 0px;
+}
+
+#card {
+    background-color: var(--background-card);
+    margin: 18% 35% 0% 35%;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 0 2px 14px 0 rgba(0,0,0,0.2);
+}
+
+header{
+    display: flex;
+}
+
+.btn ,#add, #sub {
+    font-size: 12px;
+    border: 1px solid;
+    width: 61px;
+    border-color: var(--svg-color);
+    border-radius: 7px;
+    background-color: var(--background-card);
+    font-weight: normal;
+    color: var(--button-color-light);
+    padding: 5px 11px;
+    margin: 0px 2px;
+}
+
+.pomo {
+    height: 20px;
+    padding-top: 33px;
+    padding-left: 4px;
+}
+
+svg{
+    fill: var(--svg-color);
+}
+
+svg:hover , .btn:hover{
+    cursor: pointer;
+}
+
+#cancel {
+    width: 20px;
+    float: right;
+    padding: 31px 0px 0px 255px;
+}
+
+#settings {
+    margin: 0% 6%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#setting, #info {
+    padding: 5px 0px 0px 0px;
+}
+
+
+hr {
+    margin: 0% 6% 2% 6%;
+    border: none;
+    height: 0.5px;
+   background-color: var(--svg-color);
+}
+
+#cmd {
+    padding: 15px 0px 40px 0px;
+    margin: 0px 0px 0px 6px;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+#bottom-title {
+    padding-top: 80px;
+    padding-right: 200px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: right;
+}
+
+#guide {
+    display: inline-block;
+    padding: 8px 0px 0px 0px;
+    margin: 0px;
+    font-size: 13px;
+    font-weight: normal;
+    color: var(--button-color-light);
+}
+
+
+.btn:hover {
+    background-color: var(--button-hover-light);
+}
+
+@media only screen and (max-width: 900px){
+
+}
+#top-title {
+    text-align: left;
+    padding: 15px 0px 0px 30px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#time {
+    margin-top: 15px;
+    font-size: 48px;
+    font-weight: 600;
+}
+
+#add, #sub {
+    font-size: 23px;
+    color: var(--svg-color);
+    padding: 2px 0px;
+    width: 38px;
+    cursor: pointer;
+}
+
+#sub {
+    float: left;
+    margin: -11% 0% 0% 18%;
+    padding-bottom: 0.5%;
+}
+
+#add {
+    float: right;
+    margin: -11% 18% 0% 0%;
+    padding-bottom: 0.5%;
+}

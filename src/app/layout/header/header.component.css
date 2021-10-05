@@ -1,0 +1,49 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    height: 200vh;
+  }  
+
+#navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 10px 0px;
+    background-color:rgb(255, 195, 77, 0.8);
+  }
+
+  .pomo {
+    padding-top: 18px;
+    cursor: pointer;
+  }
+
+  .sign-up {
+    background-color: #ff4b4b;
+    color: #fff;
+  }
+  
+  .sign-up:hover {
+    background-color: #ff5959;
+  }
+  
+  #top-title {
+    padding: 0px 0px 0px 30px;
+    cursor: pointer;
+  }
+
+  .btn {
+    font-size: 14px;
+    font-weight: 500;
+    width: 90px;
+    margin: 0% 2.2%;
+    height: 50px;
+  }
+  
+  
+  #sign {
+    display: flex;
+    position: fixed;
+    right: 0;
+    margin-right: 10px;
+  }
+  

@@ -1,0 +1,14 @@
+<header id="navbar">
+  <h1 id="top-title" (click)="home()">Pomoguru</h1>
+  <img class="pomo" (click)="home()" src="../../assets/favicon.png" alt="tomato image" />
+  <div id="sign">
+    <button class="btn" (click)="signIn()">Sign In</button>
+    <button class="btn sign-up" (click)="signUp()">Sign Up</button>
+  </div>
+</header>
+<app-start></app-start>
+<app-sign-in *ngIf="isSignInClicked" (signup)="runMessage($event)" (continueWithEmail)="showContinueWithEmail($event)">
+</app-sign-in>
+<app-landing-page *ngIf="isHomeClicked"></app-landing-page>
+<app-sign-up *ngIf="isSignUpClicked"></app-sign-up>
+<app-sign-in-email [email]="email" *ngIf="isSignEmail" (notyou)="turnBack($event)"></app-sign-in-email>

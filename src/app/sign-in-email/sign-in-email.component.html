@@ -1,0 +1,16 @@
+<form #f="ngForm" (ngSubmit)="signInEmail(f)" id="sign-in-email-card">
+    <h1>Welcome Back</h1>
+    <hr />
+    <p>{{ email }}</p>
+    <br />
+    <input #Password="ngModel" ngModel type="password" name="password" class="fas" placeholder="🔒 Enter your password" />
+    <br />
+    <div id="captcha">
+        <ngx-recaptcha2 #captchaElem="ngModel" ngModel name="captcha"  [siteKey]="siteKey"></ngx-recaptcha2>
+      </div>
+    <button type="submit" [disabled]="f.invalid" class="sign-button" id="login">Log in
+    </button> <br>
+    <button  class="sign-button" id="not-you" (click)="notyou()">Not you ?</button>
+  </form>
+
+  

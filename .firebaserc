@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pomoguru-d0b61": {
+      "hosting": {
+        "POMOGURU": [
+          "pomoguru-d0b61"
+        ]
+      }
+    }
+  }
+}

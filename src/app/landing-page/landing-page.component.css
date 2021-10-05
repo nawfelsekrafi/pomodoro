@@ -1,0 +1,66 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  height: 200vh;
+}
+
+
+
+
+section {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  position: relative;
+  z-index: -1;
+}
+
+#welcome-section {
+  height: 100vh;
+  color: #fff;
+  display: flex;
+  background-image: url("../../assets/wave-haikei.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#focus-quote {
+  color: #ffc34d;
+  padding-top: 141px;
+  font-weight: 400;
+  font-family: inherit;
+  font-size: 30px;
+}
+
+#illustration {
+  padding-top: 141px;
+  padding-right: 3%;
+  max-width: 40%;
+  max-height: 40%;
+  display: block;
+  position: absolute;
+  right: 0;
+}
+
+#section2 {
+  height: 100vh;
+  color: #fff;
+  background-image: url("../../assets/wave-haikei-after.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 0px;
+}
+
+pre {
+  margin: 0px;
+}
+
+footer {
+    text-align: center;
+}
+
+@media only screen and (max-width: 508px) {
+  #welcome-section {
+    display: flex;
+    flex-direction: column;
+  }
+}
