@@ -23,7 +23,7 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { SignInEmailComponent } from './sign-in-email/sign-in-email.component';
 
 //
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 
 
 

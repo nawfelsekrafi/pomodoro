@@ -1,16 +1,22 @@
-<form #f="ngForm" (ngSubmit)="signInEmail(f)" id="sign-in-email-card">
+<div id="sign-in-email-card">
+  <form #f="ngForm" (ngSubmit)="signInEmail(f)" >
+
     <h1>Welcome Back</h1>
     <hr />
     <p>{{ email }}</p>
     <br />
-    <input #Password="ngModel" ngModel type="password" name="password" class="fas" placeholder="🔒 Enter your password" />
+    <input #Password="ngModel" ngModel [type]="isActive ? 'password' : 'text'" id="password"  name="password" class="fas" placeholder="🔒 Enter your password" required /><br>
+    <p (click)="showpassword()">🧐</p>  
     <br />
     <div id="captcha">
         <ngx-recaptcha2 #captchaElem="ngModel" ngModel name="captcha"  [siteKey]="siteKey"></ngx-recaptcha2>
       </div>
     <button type="submit" [disabled]="f.invalid" class="sign-button" id="login">Log in
     </button> <br>
-    <button  class="sign-button" id="not-you" (click)="notyou()">Not you ?</button>
   </form>
+  <button  class="sign-button" id="not-you" (click)="notyou()">Not you ?</button>
+    <p class="warning">{{message}}</p>
+</div>
+
 
   

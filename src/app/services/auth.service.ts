@@ -9,10 +9,12 @@ export class AuthService {
   constructor(private au: AngularFireAuth) { 
   }
 
+  // this is used to (sign up - register) a new user in google fire base using email and password
   signup(email:string, password:string) {
     return this.au.createUserWithEmailAndPassword(email, password);
   }
 
+  // this is used to (sign in - login) a new user in google fire base using email and password
   signIn(email:string, password:string) {
     return this.au.signInWithEmailAndPassword(email, password);
   }

@@ -7,20 +7,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
 
+  //this is used to store email value
   email:string = "";
+
+ // this is used to show errors in when email is invalid or - when the email input is left empty
   message:string = "";
+
+  // this is used to show create account form when every thing seems correct
   showCreateAccount:boolean = false;
 
   constructor() { }
   ngOnInit(): void {
   }
 
+  // this is used to check if the input value has the email format, if true it shows the next page, else it shows errors.
   pass(){
-    if(this.email.length !=0){
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(this.email.length ==0){
+      this.message = "🔔 Please fill in your email address";
+      
+    }else if (re.test(String(this.email).toLowerCase())){
       this.showCreateAccount= true;
     }
     else {
-      this.message = "Please fill in your email address"
+      this.message = "🔔 Please fill in a valid email address";
     }
     
   }

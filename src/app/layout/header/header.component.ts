@@ -73,10 +73,14 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  //this methode is used to display "Log in Principale Page " after the click of "Not you?  in the sign-in-with-email component"
   turnBack(event: any){
-    this.isSignUpClicked = false;
-    this.isHomeClicked = false;
-    this.isSignInClicked = true;
-    this.isSignEmail = false;
+    if (event["1"] == true){
+      this.isSignUpClicked = false;
+      this.isHomeClicked = false;
+      this.isSignInClicked = true;
+      this.isSignEmail = false;
+    }
+    
   }
 }

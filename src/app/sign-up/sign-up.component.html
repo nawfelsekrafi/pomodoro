@@ -30,19 +30,19 @@
       > <p id="continue-google-title">Continue with Google</p></button
     ><br />
     <button class="sign-button" id="continue-w-apple">
-      <img id="apple-icon" src="../../assets/apple.png" alt="" /> Continue with
+      <img id="apple-icon" src="assets/apple.png" alt="" /> Continue with
       Apple
     </button>
     <p>or</p>
-    <input
+      <input
       type="email"
       name="email"
       placeholder="✉ Work email address"
       [(ngModel)]="email" required
-      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
     /><br />
-    <button class="sign-button" id="continue-w-email" (click) = pass()>Continue with Email</button><br><br>
-    {{message}}
+    <button class="sign-button" id="continue-w-email"  type="submit" (click)="pass()" >Continue with Email</button><br><br>
+    <p class="warning">{{message}}</p>
+   
   </div>
   
   <app-create-account [email]="email" *ngIf="showCreateAccount"></app-create-account>

@@ -3,11 +3,12 @@
   <hr />
   <p>{{ email }}</p>
 
-  <input #firstName="ngModel" ngModel type="text" name="firstname" class="fas" placeholder="🙎‍♂️ First name" /><br/>
+  <input #firstName="ngModel" ngModel type="text" name="firstname" class="fas" placeholder="🙎‍♂️ First name" required /><br/>
 
-  <input #lastName="ngModel" ngModel type="text" name="lastname" class="fas" placeholder="🙎‍♂️ Last name" />
+  <input #lastName="ngModel" ngModel type="text" name="lastname" class="fas" placeholder="🙎‍♂️ Last name" required/>
   <br />
-  <input #Password="ngModel" ngModel type="password" name="password" class="fas" placeholder="🔒 Create a password" />
+  <input #Password="ngModel" ngModel type="password" name="password" class="fas" placeholder="🔒 Create a password" required minlength="8"/> <br>
+  <input #PasswordConfirm="ngModel" ngModel type="password" name="passwordConfirm" class="fas" placeholder="🔒 Confirm your password" required minlength="8"/>
   <br />
   <div id="captcha">
     <ngx-recaptcha2 #captchaElem="ngModel" ngModel name="captcha"  [siteKey]="siteKey"></ngx-recaptcha2>

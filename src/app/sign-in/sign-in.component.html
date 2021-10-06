@@ -7,8 +7,8 @@
     id="username"
     [(ngModel)]="email"
     placeholder="🙎‍♂️Username or ✉Email"
-    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
   /><br />
+  <p class=warning>{{message}}</p>
   <button class="sign-button" id="continue-w-email" (click)="continuewithemail()" >Continue with Email</button>
   <p>or</p>
   <button class="sign-button" id="continue-w-google">
@@ -40,7 +40,7 @@
     > <p id="continue-google-title">Continue with Google</p></button
   ><br />
   <button class="sign-button" id="continue-w-apple">
-    <img id="apple-icon" src="../../assets/apple.png" alt="" /> Continue with
+    <img id="apple-icon" src="assets/apple.png" alt="" /> Continue with
     Apple
   </button>
   <hr />

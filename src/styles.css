@@ -146,3 +146,11 @@ a {
     margin: -11% 18% 0% 0%;
     padding-bottom: 0.5%;
 }
+
+
+.warning {
+    padding: 0px;
+    margin: 0px;
+    color: rgb(238, 167, 26);
+    font-size: 14px;
+}
