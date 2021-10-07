@@ -1,4 +1,3 @@
-
 export class User {
   private _firstName: string;
 

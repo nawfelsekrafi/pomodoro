@@ -1,7 +1,7 @@
 <div id="sign-up-card" *ngIf="showCreateAccount == false">
     <h1>Sign Up</h1>
     <hr />
-    <button class="sign-button" id="continue-w-google">
+    <button class="sign-button" (click)="signInGoogle()" id="continue-w-google">
       <svg id="google-icon"
         xmlns="http://www.w3.org/2000/svg"
         x="0px"

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class SignInComponent implements OnInit {
   // this is used to show errors when they occured
   message:string = "";
 
-  constructor() { }
+  constructor(private au: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -47,6 +48,14 @@ export class SignInComponent implements OnInit {
       this.message = "🔔 Please fill in a valid email address";
     }
     
+  }
+
+  signInGoogle() {
+    this.au.signInWithGoogle().then(()=>{
+      console.log("you are inside seccesfully");
+    }).catch((e)=>{
+      console.log(e);
+    })
   }
 
 }

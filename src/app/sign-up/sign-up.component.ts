@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -16,7 +17,7 @@ export class SignUpComponent implements OnInit {
   // this is used to show create account form when every thing seems correct
   showCreateAccount:boolean = false;
 
-  constructor() { }
+  constructor(private au: AuthService) { }
   ngOnInit(): void {
   }
 
@@ -33,5 +34,13 @@ export class SignUpComponent implements OnInit {
       this.message = "🔔 Please fill in a valid email address";
     }
     
+  }
+
+  signInGoogle() {
+    this.au.signInWithGoogle().then(()=>{
+      console.log("you are inside seccesfully");
+    }).catch((e)=>{
+      console.log(e);
+    })
   }
 }
