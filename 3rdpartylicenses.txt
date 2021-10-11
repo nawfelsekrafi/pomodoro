@@ -80,6 +80,8 @@ Apache-2.0
 
 firebase/app
 
+firebase/auth
+
 firebase/compat/app
 
 firebase/compat/auth
