@@ -9,6 +9,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class SignInEmailComponent implements OnInit {
 
+  showSignIn:boolean=true;
+
   // this output is used to turn back to login page when user clicked at "Not You?"
   @Output() signin = new EventEmitter<object>();
 
@@ -39,8 +41,13 @@ export class SignInEmailComponent implements OnInit {
       .then(() => {
         console.log('Yes logged in ');
       })
-      .catch(() => {
-        this.message = "⚠ Try again with a registred email! ⚠"
+      .catch((e) => {
+        if (e.message == "Firebase: The password is invalid or the user does not have a password. (auth/wrong-password)."){
+          this.message = "⚠ Wrong Password! Or you dont Have Password, try to log in with Google or Apple. ⚠"
+        }else{
+          this.message = "⚠ Try again with a registred email! ⚠"
+        }
+        
       });
     
   }
@@ -50,8 +57,13 @@ export class SignInEmailComponent implements OnInit {
     this.signin.emit({"1":true});
   }
 
-  //his methode is used to show and hide password 
+  //this methode is used to show and hide password 
   showpassword() {
     this.isActive = !this.isActive;
+  }
+
+  //this methode is used to show Reset Password Page
+  showResetPage() {
+    this.showSignIn = false;
   }
 }

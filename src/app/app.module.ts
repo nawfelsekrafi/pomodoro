@@ -15,20 +15,22 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 // these are the components
 import { AppComponent } from './app.component';
 import { StartComponent } from './start/start.component';
-import { LandingPageCopmonent } from './landing-page/landing-page.component';
+import { LandingPageCopmonent } from './Home/landing-page.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { CreateAccountComponent } from './create-account/create-account.component';
+import { CreateAccountComponent } from './sign-up-email/create-account.component';
 import { SignInEmailComponent } from './sign-in-email/sign-in-email.component';
 
 //
 import { environment } from '../environments/environment.prod';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AppPomodoroComponent } from './app-pomodoro/app-pomodoro.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, StartComponent, LandingPageCopmonent, SignInComponent, HeaderComponent, SignUpComponent, CreateAccountComponent, SignInEmailComponent],
+  declarations: [AppComponent, StartComponent, LandingPageCopmonent, SignInComponent, HeaderComponent, SignUpComponent, CreateAccountComponent, SignInEmailComponent, ForgotPasswordComponent, AppPomodoroComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,

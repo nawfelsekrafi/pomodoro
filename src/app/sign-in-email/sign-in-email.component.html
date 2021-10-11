@@ -1,12 +1,15 @@
-<div id="sign-in-email-card">
+<div id="sign-in-email-card" *ngIf="showSignIn">
   <form #f="ngForm" (ngSubmit)="signInEmail(f)" >
 
     <h1>Welcome Back</h1>
     <hr />
     <p>{{ email }}</p>
     <br />
-    <input #Password="ngModel" ngModel [type]="isActive ? 'password' : 'text'" id="password"  name="password" class="fas" placeholder="🔒 Enter your password" required /><br>
-    <p (click)="showpassword()">🧐</p>  
+    <input (keyup.enter)="signInEmail(f)"  #Password="ngModel" ngModel [type]="isActive ? 'password' : 'text'" id="password"  name="password" class="fas" placeholder="🔒 Enter your password" required /><br>
+    <div id="container">
+      <span id="showPass" (click)="showpassword()">🧐</span>
+      <span id="forgot-password" (click)="showResetPage()">Forgot password?</span>
+    </div>
     <br />
     <div id="captcha">
         <ngx-recaptcha2 #captchaElem="ngModel" ngModel name="captcha"  [siteKey]="siteKey"></ngx-recaptcha2>
@@ -17,6 +20,8 @@
   <button  class="sign-button" id="not-you" (click)="notyou()">Not you ?</button>
     <p class="warning">{{message}}</p>
 </div>
+
+<app-forgot-password *ngIf="showSignIn == false"></app-forgot-password>
 
 
   

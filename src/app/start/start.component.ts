@@ -7,7 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./start.component.css'],
 })
 export class StartComponent implements OnInit {
-  constructor() {}
+  toggleSwitch: any = document.querySelector(
+    '.theme-switch input[type="checkbox"]'
+  );
+
+  switchTheme(e: any) {
+    if (e.target.checked) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    }
+  }
+
+  constructor() {
+    var currentTheme = localStorage.getItem('theme')
+      ? localStorage.getItem("'theme")
+      : null;
+    if (currentTheme) {
+      document.documentElement.setAttribute('data-theme', currentTheme);
+      if (currentTheme === 'dark') {
+        this.toggleSwitch.checked = true;
+      }
+    }
+  }
 
   ngOnInit(): void {}
 
@@ -33,15 +57,15 @@ export class StartComponent implements OnInit {
         this.minutes = min < 10 ? '0' + min : min.toString();
         var sec = Math.floor(timeleft - min * 60);
         this.seconds = sec < 10 ? '0' + sec : sec.toString();
-        if (sec == 10 && min <1)
-        {
+        if (sec == 10 && min < 1) {
           this.playAudioFinishBreak();
         }
         if (
           (min == 0 && sec == 0) ||
           this.isPause ||
           this.isBreakTime ||
-          this.isFocusTime        ) {
+          this.isFocusTime
+        ) {
           if (min == 0 && sec == 0) {
             this.count = 1;
             this.time = 0;
@@ -84,11 +108,11 @@ export class StartComponent implements OnInit {
       this.minutes = min < 10 ? '0' + min : min.toString();
       this.seconds = sec < 10 ? '0' + sec : sec.toString();
     }
-    if (this.count <= 0 ){
-      this.seconds = "00";
-      this.minutes = "00";
+    if (this.count <= 0) {
+      this.seconds = '00';
+      this.minutes = '00';
       this.count = 0;
-    } 
+    }
   }
 
   save() {
@@ -140,14 +164,10 @@ export class StartComponent implements OnInit {
     this.isBreakTime = true;
   }
 
-  playAudioFinishBreak(){
+  playAudioFinishBreak() {
     let audio = new Audio();
-    audio.src = "../assets/finishBreakAudio.wav";
+    audio.src = '../assets/finishBreakAudio.wav';
     audio.load();
     audio.play();
   }
-
 }
-
-
-

@@ -1,15 +1,15 @@
 <div id="sign-in-card">
   <h1>Log in to Pomoguru</h1>
   <hr />
-  <input
+  <input (keyup.enter)="continuewithemail()"
     type="email"
     name="email"
     id="username"
     [(ngModel)]="email"
-    placeholder="🙎‍♂️Username or ✉Email"
+    placeholder="✉Email"
   /><br />
   <p class=warning>{{message}}</p>
-  <button class="sign-button" id="continue-w-email" (click)="continuewithemail()" >Continue with Email</button>
+  <button class="sign-button" id="continue-w-email"   (click)="continuewithemail()" >Continue with Email</button>
   <p>or</p>
   <button class="sign-button" (click)="signInGoogle()" id="continue-w-google">
     <svg id="google-icon"

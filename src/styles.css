@@ -3,9 +3,25 @@
 :root {
     --background-root: rgb(244,244,244);
     --background-card: rgb(255,255,255);
-    --button-color-light: rgb(118,118,118);
+    --color-card: rgb(38,38,38);
+    --button-color: rgb(87,87,87);
     --svg-color: rgb(217,217,217);
-    --button-hover-light: rgb(244,244,244);
+    --button-hover: rgb(244,244,244);
+    --button-border: rgb(217,217,217);
+    --hr: rgb(217,217,217);
+    --guide-color: rgb(87,87,87);
+}
+
+[data-theme='dark'] {
+    
+    --background-root: rgb(25,25,25);
+    --background-card: rgb(38,38,38);
+    --color-card: rgb(245,245,245);
+    --button-color: rgb(191,191,191);
+    --svg-color: rgb(191,191,191);
+    --button-border: rgb(89,89,89);
+    --hr: rgb(53,53,53);
+    --guide-color: rgb(172,172,172);
 }
 
 body{
@@ -17,8 +33,10 @@ body{
 }
 
 #card {
+    width: 450px;
     background-color: var(--background-card);
-    margin: 18% 35% 0% 35%;
+    color: var(--color-card);
+    margin: 18% auto 0% auto;
     text-align: center;
     border-radius: 25px;
     box-shadow: 0 2px 14px 0 rgba(0,0,0,0.2);
@@ -32,11 +50,11 @@ header{
     font-size: 12px;
     border: 1px solid;
     width: 61px;
-    border-color: var(--svg-color);
+    border-color: var(--button-border);
     border-radius: 7px;
     background-color: var(--background-card);
     font-weight: normal;
-    color: var(--button-color-light);
+    color: var(--button-color);
     padding: 5px 11px;
     margin: 0px 2px;
 }
@@ -76,7 +94,7 @@ hr {
     margin: 0% 6% 2% 6%;
     border: none;
     height: 0.5px;
-   background-color: var(--svg-color);
+    background-color: var(--hr);
 }
 
 #cmd {
@@ -95,6 +113,7 @@ a {
     font-size: 20px;
     font-weight: 600;
     text-align: right;
+    color: var(--color-card);
 }
 
 #guide {
@@ -103,17 +122,14 @@ a {
     margin: 0px;
     font-size: 13px;
     font-weight: normal;
-    color: var(--button-color-light);
+    color: var(--guide-color);
 }
 
 
 .btn:hover {
-    background-color: var(--button-hover-light);
+    background-color: var(--button-hover);
 }
 
-@media only screen and (max-width: 900px){
-
-}
 #top-title {
     text-align: left;
     padding: 15px 0px 0px 30px;
@@ -153,4 +169,11 @@ a {
     margin: 0px;
     color: rgb(238, 167, 26);
     font-size: 14px;
+}
+
+
+@media only screen and (max-width:646px) {
+    * {
+        display: none;
+    }
 }

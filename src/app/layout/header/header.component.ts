@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -21,6 +21,9 @@ export class HeaderComponent implements OnInit {
 
   //this value is used when user choose to log in with email.
   email:string= "";
+
+  //
+  @Output() loggedIn = new EventEmitter<boolean>();
 
   constructor() {}
 
@@ -81,6 +84,11 @@ export class HeaderComponent implements OnInit {
       this.isSignInClicked = true;
       this.isSignEmail = false;
     }
-    
+  }
+
+  SignedIn(event: any) {
+    this.loggedIn.emit(event["1"]);
+    console.log("event in Header" + event["1"]);
   }
 }
+

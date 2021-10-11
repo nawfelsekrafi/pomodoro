@@ -9,6 +9,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class SignInComponent implements OnInit {
 
+  @Output() SignedIn = new EventEmitter<object>();
+
   // this is used to send value true to the header component to show then sign up page 
   @Output() signup =  new EventEmitter<boolean>();
 
@@ -52,10 +54,15 @@ export class SignInComponent implements OnInit {
 
   signInGoogle() {
     this.au.signInWithGoogle().then(()=>{
+      this.SignedIn.emit({"1": true});
       console.log("you are inside seccesfully");
+      
     }).catch((e)=>{
       console.log(e);
+      this.SignedIn.emit({"1": false});
     })
   }
 
 }
+
+

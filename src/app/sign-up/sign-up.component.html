@@ -39,6 +39,7 @@
       name="email"
       placeholder="✉ Work email address"
       [(ngModel)]="email" required
+      (keyup.enter)="pass()"
     /><br />
     <button class="sign-button" id="continue-w-email"  type="submit" (click)="pass()" >Continue with Email</button><br><br>
     <p class="warning">{{message}}</p>
