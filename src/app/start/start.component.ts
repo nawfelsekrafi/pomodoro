@@ -11,13 +11,16 @@ export class StartComponent implements OnInit {
     '.theme-switch input[type="checkbox"]'
   );
 
+  day: boolean = true;
   switchTheme(e: any) {
     if (e.target.checked) {
       document.documentElement.setAttribute('data-theme', 'dark');
+      this.day= false;
       localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.setAttribute('data-theme', 'light');
       localStorage.setItem('theme', 'light');
+      this.day = true;
     }
   }
 

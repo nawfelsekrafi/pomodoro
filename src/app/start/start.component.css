@@ -1,0 +1,13 @@
+#checkbox {
+    height: 0;
+    width: 0;
+}
+
+.changeLight {
+    cursor: pointer;
+    position: center;
+}
+
+.theme-switch {
+    text-align: center;
+}
