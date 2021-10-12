@@ -1,6 +1,7 @@
-<div  class="theme-switch">
+<app-nav></app-nav>
+<div class="theme-switch">
   <input (click)="switchTheme($event)" type="checkbox" name="dark" id="checkbox">
-  <label for="checkbox" class="changeLight" *ngIf="day == false">☀️</label>
+  <label for="checkbox" class="changeLight"*ngIf="day == false">☀️</label>
   <label for="checkbox" class="changeLight" *ngIf="day == true">🌙</label>
 
 </div>

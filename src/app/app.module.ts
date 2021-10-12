@@ -26,11 +26,12 @@ import { SignInEmailComponent } from './sign-in-email/sign-in-email.component';
 import { environment } from '../environments/environment.prod';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AppPomodoroComponent } from './app-pomodoro/app-pomodoro.component';
+import { NavComponent } from './layout/nav/nav.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, StartComponent, LandingPageCopmonent, SignInComponent, HeaderComponent, SignUpComponent, CreateAccountComponent, SignInEmailComponent, ForgotPasswordComponent, AppPomodoroComponent],
+  declarations: [AppComponent, StartComponent, LandingPageCopmonent, SignInComponent, HeaderComponent, SignUpComponent, CreateAccountComponent, SignInEmailComponent, ForgotPasswordComponent, AppPomodoroComponent, NavComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,

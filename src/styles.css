@@ -10,6 +10,7 @@
     --button-border: rgb(217,217,217);
     --hr: rgb(217,217,217);
     --guide-color: rgb(87,87,87);
+    --nav-background: rgb(255, 195, 77, 0.8);
 }
 
 [data-theme='dark'] {
@@ -22,6 +23,7 @@
     --button-border: rgb(89,89,89);
     --hr: rgb(53,53,53);
     --guide-color: rgb(172,172,172);
+    --nav-background:  rgb(38,38,38);
 }
 
 body{
