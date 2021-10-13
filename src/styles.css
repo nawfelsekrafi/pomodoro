@@ -34,7 +34,7 @@ body{
     margin: 0px;
 }
 
-#card {
+.card {
     width: 450px;
     background-color: var(--background-card);
     color: var(--color-card);

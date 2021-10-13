@@ -41,9 +41,9 @@ export class StartComponent implements OnInit {
   ngOnInit(): void {}
 
   dashboard: boolean = false;
-  timer: boolean = true;
+  timer: boolean = false;
   settings: boolean = false;
-  about: boolean = false;
+  about: boolean = true;
   projects: boolean = false;
   changePage(event: any){
     switch(event) {

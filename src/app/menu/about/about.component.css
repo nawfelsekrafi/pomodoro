@@ -1,0 +1,42 @@
+#top-about {
+    margin: 133px auto 0% auto;
+}
+
+#bottom-about {
+    margin: 3% auto 0% auto;
+}
+
+.contact {
+    width: auto;
+    height: 30px;
+}
+
+#contact-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: -8px;
+}
+
+#avatar {
+    width: auto;
+    height: 118px;
+    height: 152px;
+    margin-right: 8px;
+    border-radius: 0px 25px 0px 25px;
+}
+
+#header-images {
+    display: flex;
+    align-items: center;;
+
+}
+
+#disc {
+    display: inline-block;
+    padding:20px 25px;
+    margin: 0px;
+    font-size: 13px;
+    font-weight: normal;
+    color: var(--guide-color);
+}
