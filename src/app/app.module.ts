@@ -14,24 +14,29 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 // these are the components
 import { AppComponent } from './app.component';
-import { StartComponent } from './start/start.component';
-import { LandingPageCopmonent } from './Home/landing-page.component';
-import { SignInComponent } from './sign-in/sign-in.component';
+import { StartComponent } from './Home/start.component';
+import { LandingPageCopmonent } from './layout/landing-page/landing-page.component';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { HeaderComponent } from './layout/header/header.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { CreateAccountComponent } from './sign-up-email/create-account.component';
-import { SignInEmailComponent } from './sign-in-email/sign-in-email.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { CreateAccountComponent } from './auth/sign-up-email/create-account.component';
+import { SignInEmailComponent } from './auth/sign-in-email/sign-in-email.component';
 
 //
 import { environment } from '../environments/environment.prod';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { AppPomodoroComponent } from './app-pomodoro/app-pomodoro.component';
 import { NavComponent } from './layout/nav/nav.component';
+import { TimerComponent } from './menu/timer/timer.component';
+import { DashboardComponent } from './menu/dashboard/dashboard.component';
+import { SettingComponent } from './menu/setting/setting.component';
+import { ProjectsComponent } from './menu/projects/projects.component';
+import { AboutComponent } from './menu/about/about.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, StartComponent, LandingPageCopmonent, SignInComponent, HeaderComponent, SignUpComponent, CreateAccountComponent, SignInEmailComponent, ForgotPasswordComponent, AppPomodoroComponent, NavComponent],
+  declarations: [AppComponent, StartComponent, LandingPageCopmonent, SignInComponent, HeaderComponent, SignUpComponent, CreateAccountComponent, SignInEmailComponent, ForgotPasswordComponent, AppPomodoroComponent, NavComponent, TimerComponent, DashboardComponent, SettingComponent, ProjectsComponent, AboutComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
