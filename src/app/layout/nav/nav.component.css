@@ -3,7 +3,7 @@ body {
     height: 200vh;
   }  
 
-#navbar {
+#nav-bar {
     position: fixed;
     width: 100%;
     top: 0;

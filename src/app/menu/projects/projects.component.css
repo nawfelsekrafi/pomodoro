@@ -1,0 +1,64 @@
+#add-project-card {
+  margin-top: 133px;
+  margin-bottom: 68px;
+}
+
+.card {
+  border-radius: 19px;
+  margin-top: 1%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#setting {
+  padding: 0px;
+}
+
+#project-title {
+  padding-left: 19px;
+  padding-right: 16px;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+#project {
+  display: inherit;
+}
+
+#guide {
+  padding-bottom: 11px;
+  padding-right: 5px;
+}
+
+#cancel {
+  padding: 0;
+  padding-right: 6px;
+}
+
+#edit {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  width: 260px;
+  border-radius: 5px;
+  border: 1px solid var(--svg-color);
+  padding: 6px 12px;
+  margin: 8px 5px 8px 16px;
+}
+
+input:focus {
+    outline: none !important;
+    border:1px solid rgb(238, 167, 26);
+}
+
+#tick {
+    margin-right: 16px;
+    cursor: pointer;
+}

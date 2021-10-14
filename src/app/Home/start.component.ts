@@ -43,8 +43,8 @@ export class StartComponent implements OnInit {
   dashboard: boolean = false;
   timer: boolean = false;
   settings: boolean = false;
-  about: boolean = true;
-  projects: boolean = false;
+  about: boolean = false;
+  projects: boolean = true;
   changePage(event: any){
     switch(event) {
       case "dashboard":

@@ -18,7 +18,7 @@ section {
   height: 100vh;
   color: #fff;
   display: flex;
-  background-image: url("../../assets/wave-haikei.svg");
+  background-image: url("../../../assets/wave-haikei.svg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -44,7 +44,7 @@ section {
 #section2 {
   height: 100vh;
   color: #fff;
-  background-image: url("../../assets/wave-haikei-after.svg");
+  background-image: url("../../../assets/wave-haikei-after.svg");
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: 0px;
