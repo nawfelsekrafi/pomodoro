@@ -1,5 +1,5 @@
-export interface Project {
-    id?: number;
+export class Project {
+    uid: string;
     name: string;
-    TimePassed?: number;
+    TimePassed: number;
 }

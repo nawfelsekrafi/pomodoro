@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { User } from 'src/app/models/user';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -8,6 +10,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class SignUpComponent implements OnInit {
 
+  @Output() SignedIn = new EventEmitter<object>();
+  
   //this is used to store email value
   email:string = "";
 
@@ -17,7 +21,7 @@ export class SignUpComponent implements OnInit {
   // this is used to show create account form when every thing seems correct
   showCreateAccount:boolean = false;
 
-  constructor(private au: AuthService) { }
+  constructor(private au: AuthService, private fs: AngularFirestore) { }
   ngOnInit(): void {
   }
 
@@ -37,10 +41,26 @@ export class SignUpComponent implements OnInit {
   }
 
   signInGoogle() {
-    this.au.signInWithGoogle().then(()=>{
-      console.log("you are inside seccesfully");
+    this.au.signInWithGoogle().then((user)=>{
+      
+      let newUser:User = new User();
+      newUser.uid = user.user.uid;
+      newUser.email = user.user.email;
+      newUser.firstName = user.user.displayName.split(" ")[0] ;
+      newUser.lastName = user.user.displayName.split(" ")[1];
+      newUser.photoUrl = user.user.photoURL;
+
+      this.fs.collection('users').doc(user.user.uid).set(Object.assign({}, newUser)).then(()=>{
+        this.SignedIn.emit({"1": true});
+      })
     }).catch((e)=>{
       console.log(e);
-    })
+      this.SignedIn.emit({"1": false});
+    });;
+    
+  }
+
+  logedIn(event: any) {
+    this.SignedIn.emit({"1": true});
   }
 }

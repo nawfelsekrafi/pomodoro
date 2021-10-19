@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { UserService } from 'src/app/services/user.service';
 import { AuthService } from '../../services/auth.service';
 
 
@@ -26,7 +28,7 @@ export class SignInComponent implements OnInit {
   // this is used to show errors when they occured
   message:string = "";
 
-  constructor(private au: AuthService) { }
+  constructor(private au: AuthService, private fs: AngularFirestore, private userService: UserService) { }
 
   ngOnInit(): void {
   }
@@ -53,11 +55,30 @@ export class SignInComponent implements OnInit {
   }
 
   signInGoogle() {
-    this.au.signInWithGoogle().then(()=>{
-      this.SignedIn.emit({"1": true});
-      console.log("you are inside seccesfully");
-      
-    }).catch((e)=>{
+
+    this.au.signInWithGoogle().then((user)=>{
+
+      this.fs.collection('users').doc(user.user.uid).get().subscribe((data:any) => {
+        if (data.exists){
+          console.log("exits");
+          this.SignedIn.emit({"1": true});
+        }else {
+          console.log("Not exits");
+          this.fs.collection('users').doc(user.user.uid).set({
+            uid: user.user.uid,
+            email: user.user.email,
+            firstName :  user.user.displayName.split(" ")[0],
+            lastName : user.user.displayName.split(" ")[1],
+            photoUrl : user.user.photoURL
+          }).then(()=>{
+            this.SignedIn.emit({"1": true});
+          })
+
+        }
+        })
+        
+         
+      }).catch((e)=>{
       console.log(e);
       this.SignedIn.emit({"1": false});
     })

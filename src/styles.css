@@ -38,7 +38,7 @@ body{
     width: 450px;
     background-color: var(--background-card);
     color: var(--color-card);
-    margin: 18% auto 0% auto;
+    margin: 16% auto 0% auto;
     text-align: center;
     border-radius: 25px;
     box-shadow: 0 2px 14px 0 rgba(0,0,0,0.2);
@@ -110,7 +110,7 @@ a {
 }
 
 #bottom-title {
-    padding-top: 80px;
+    padding-top: 30px;
     padding-right: 200px;
     font-size: 20px;
     font-weight: 600;

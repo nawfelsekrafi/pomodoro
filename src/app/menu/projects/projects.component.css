@@ -1,11 +1,12 @@
-#add-project-card {
-  margin-top: 133px;
-  margin-bottom: 68px;
-}
 
 .card {
   border-radius: 19px;
-  margin-top: 1%;
+  margin-top: 10px;
+}
+
+
+#add-project-card {
+  margin: 133px auto 68px auto;
 }
 
 header {
@@ -16,6 +17,10 @@ header {
 
 #setting {
   padding: 0px;
+  transition: transform 1s;
+}
+#setting:hover {
+  transform: rotate(180deg);
 }
 
 #project-title {

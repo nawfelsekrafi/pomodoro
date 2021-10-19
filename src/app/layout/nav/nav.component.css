@@ -19,4 +19,9 @@ img {
     width: auto;
     height: 43px;
     cursor: pointer;
+    transition: transform 0.5s;
+  }
+
+  img:hover {
+    transform: scale(1.3)
   }

@@ -46,4 +46,4 @@
    
   </div>
   
-  <app-create-account [email]="email" *ngIf="showCreateAccount"></app-create-account>
+  <app-create-account (createdAndNowLoginIn)="logedIn($event)" [email]="email" *ngIf="showCreateAccount"></app-create-account>

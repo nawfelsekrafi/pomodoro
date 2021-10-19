@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,7 +10,7 @@ export class NavComponent implements OnInit {
 
   @Output() page = new EventEmitter<string>();
   
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +32,10 @@ export class NavComponent implements OnInit {
     this.page.emit("about");
   }
  
+  signOut(){
+     this.auth.signOut();
+     location.reload();
+  }
 
 
 }

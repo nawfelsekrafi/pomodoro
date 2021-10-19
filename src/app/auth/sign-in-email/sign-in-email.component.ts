@@ -11,6 +11,8 @@ export class SignInEmailComponent implements OnInit {
 
   showSignIn:boolean=true;
 
+  @Output() SignedIn = new EventEmitter<object>();
+
   // this output is used to turn back to login page when user clicked at "Not You?"
   @Output() signin = new EventEmitter<object>();
 
@@ -39,7 +41,9 @@ export class SignInEmailComponent implements OnInit {
       this.au
       .signIn(data.email, data.password)
       .then(() => {
-        console.log('Yes logged in ');
+        // store user in db  na9ess mzll
+        this.SignedIn.emit({"1": true});
+        console.log('Yes logged in');
       })
       .catch((e) => {
         if (e.message == "Firebase: The password is invalid or the user does not have a password. (auth/wrong-password)."){
@@ -47,7 +51,6 @@ export class SignInEmailComponent implements OnInit {
         }else{
           this.message = "⚠ Try again with a registred email! ⚠"
         }
-        
       });
     
   }

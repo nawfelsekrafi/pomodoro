@@ -10,5 +10,5 @@
 <app-sign-in *ngIf="isSignInClicked" (signup)="runMessage($event)" (continueWithEmail)="showContinueWithEmail($event)" (SignedIn)="SignedIn($event)">
 </app-sign-in>
 <app-landing-page *ngIf="isHomeClicked"></app-landing-page>
-<app-sign-up *ngIf="isSignUpClicked"></app-sign-up>
-<app-sign-in-email [email]="email" *ngIf="isSignEmail" (signin)="turnBack($event)" ></app-sign-in-email>
+<app-sign-up *ngIf="isSignUpClicked" (SignedIn)="SignedIn($event)"></app-sign-up>
+<app-sign-in-email [email]="email" *ngIf="isSignEmail" (signin)="turnBack($event)" (SignedIn)="SignedIn($event)"></app-sign-in-email>

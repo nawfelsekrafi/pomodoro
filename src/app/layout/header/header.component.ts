@@ -88,7 +88,6 @@ export class HeaderComponent implements OnInit {
 
   SignedIn(event: any) {
     this.loggedIn.emit(event["1"]);
-    console.log("event in Header" + event["1"]);
   }
 }
 
