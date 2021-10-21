@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css']
 })
-export class TimerComponent implements OnInit {
+export class TimerComponent implements OnInit  {
+
   isStart: boolean = false;
   isPause: boolean = false;
   time: number = 1 * 10;
@@ -18,11 +20,12 @@ export class TimerComponent implements OnInit {
   count: number = 0;
   isStop: boolean = false;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
   
+
   start(): void {
     this.isStart = true;
     var interval = setInterval(() => {
@@ -146,5 +149,7 @@ export class TimerComponent implements OnInit {
     audio.load();
     audio.play();
   }
+
+
 
 }
