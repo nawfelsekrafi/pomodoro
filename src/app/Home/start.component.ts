@@ -1,5 +1,6 @@
 import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-start',
@@ -7,6 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./start.component.css'],
 })
 export class StartComponent implements OnInit {
+
+  dashboard: boolean = false;
+  timer: boolean = false;
+  settings: boolean = false;
+  about: boolean = false;
+  projects: boolean = true;
+
+  constructor(private userService: UserService) {
+
+    var currentTheme = localStorage.getItem('theme')
+      ? localStorage.getItem("'theme")
+      : null;
+    if (currentTheme) {
+      document.documentElement.setAttribute('data-theme', currentTheme);
+      if (currentTheme === 'dark') {
+        this.toggleSwitch.checked = true;
+      }
+    }
+  }
 
   toggleSwitch: any = document.querySelector(
     '.theme-switch input[type="checkbox"]'
@@ -26,25 +46,9 @@ export class StartComponent implements OnInit {
     }
   }
 
-  constructor() {
-    var currentTheme = localStorage.getItem('theme')
-      ? localStorage.getItem("'theme")
-      : null;
-    if (currentTheme) {
-      document.documentElement.setAttribute('data-theme', currentTheme);
-      if (currentTheme === 'dark') {
-        this.toggleSwitch.checked = true;
-      }
-    }
+  ngOnInit(): void {
+    this.userService.gotUserAllData();
   }
-
-  ngOnInit(): void {}
-
-  dashboard: boolean = false;
-  timer: boolean = false;
-  settings: boolean = true;
-  about: boolean = false;
-  projects: boolean = false;
 
   changePage(event: any){
     switch(event) {

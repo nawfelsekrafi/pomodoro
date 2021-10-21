@@ -1,14 +1,14 @@
 <main class="card" id="top-about">
     <header>
-      <img id="profile-photo" src="assets/girl.jpg" alt="">
-      <p id="name"><b>إسراء أبو سمرا </b> </p>
+      <img id="profile-photo" src={{photoUrl}}  alt="">
+      <p id="name"><b> {{name}} </b> </p>
     </header>
     <hr>
    <p id="disc"> change sound when working-session finished: </p>
    <ul>
-    <li><img src="https://img.icons8.com/fluency-systems-filled/48/000000/musical.png"/></li>
-    <li><img src="https://img.icons8.com/fluency-systems-filled/48/000000/musical.png"/></li>
-    <li><img src="https://img.icons8.com/fluency-systems-filled/48/000000/musical.png"/></li>
+    <li (click) = "changeSound(1)"><img id="1" src="https://img.icons8.com/fluency-systems-filled/48/000000/musical.png"/></li>
+    <li (click) = "changeSound(2)"><img id="2"  src="https://img.icons8.com/fluency-systems-filled/48/000000/musical.png"/></li>
+    <li (click) = "changeSound(3)"><img id="3" src="https://img.icons8.com/fluency-systems-filled/48/000000/musical.png"/></li>
    </ul>
    <button id="delete" >Delete Account</button>
 

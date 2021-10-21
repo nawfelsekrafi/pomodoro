@@ -11,7 +11,6 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class ProjectsComponent implements OnInit {
 
-  
   newProject: string = "";
   projects: Project[] = [];
   user: User =  new User();
@@ -19,6 +18,17 @@ export class ProjectsComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+
+    this.userService.currentUserData.subscribe((user) => {
+      this.user = user;
+       if (this.user.projects){
+        this.projects = this.user.projects;
+      } else {
+        this.projects = [];
+      }
+    });
+   
+   /*
     this.userService.getUserAllData().subscribe((data:any) => {
       this.user =  data[0];
       if (this.user.projects){
@@ -27,6 +37,7 @@ export class ProjectsComponent implements OnInit {
         this.projects = [];
       }
     });
+    */
   }
 
   createProject(){
@@ -39,8 +50,10 @@ export class ProjectsComponent implements OnInit {
 
       (<HTMLInputElement>document.getElementById("goal")).value = "";
       this.projects.push(p);
+      
       this.user.projects = this.projects;
-      this.userService.updateUserData(this.user);
+      this.userService.changeUserData(this.user);
+      //this.userService.updateUserData(this.user);
     }
     else {
       console.log("Please fill in with the new Project name")
@@ -50,13 +63,15 @@ export class ProjectsComponent implements OnInit {
   deleteProject(id: string){
     this.projects = this.projects.filter(x=> x.uid != id);
     this.user.projects =  this.projects;
-    this.userService.updateUserData(this.user);
+    //this.userService.updateUserData(this.user);
+    this.userService.changeUserData(this.user);
   }
 
   updateProjectName(id: string) {
     let name = "*********";
     this.projects.find(x => x.uid == id).name = name;
     this.user.projects =  this.projects;
-    this.userService.updateUserData(this.user);
+    //this.userService.updateUserData(this.user);
+    this.userService.changeUserData(this.user);
   }
 }
