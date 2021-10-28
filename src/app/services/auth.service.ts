@@ -26,6 +26,7 @@ export class AuthService {
   }
 
   signOut() {
+    location.reload();
     return this.au.signOut();
   }
 }

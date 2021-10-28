@@ -60,10 +60,10 @@ export class SignInComponent implements OnInit {
 
       this.fs.collection('users').doc(user.user.uid).get().subscribe((data:any) => {
         if (data.exists){
-          console.log("exits");
+          console.log("Already a user, Welcome Back");
           this.SignedIn.emit({"1": true});
         }else {
-          console.log("Not exits");
+          console.log("New user, Welcome ");
           this.fs.collection('users').doc(user.user.uid).set({
             uid: user.user.uid,
             email: user.user.email,

@@ -81,3 +81,9 @@ hr {
 #captcha {
     margin: 0% 27.5% 3% 27.5%;
 }
+
+.alerts {
+    font-size: 13px;
+    display: block;
+    margin-top: -6px;
+}

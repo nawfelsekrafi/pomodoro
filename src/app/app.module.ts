@@ -32,11 +32,12 @@ import { DashboardComponent } from './menu/dashboard/dashboard.component';
 import { SettingComponent } from './menu/setting/setting.component';
 import { ProjectsComponent } from './menu/projects/projects.component';
 import { AboutComponent } from './menu/about/about.component';
+import { ModalComponent } from './layout/modal/modal.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, StartComponent, LandingPageCopmonent, SignInComponent, HeaderComponent, SignUpComponent, CreateAccountComponent, SignInEmailComponent, ForgotPasswordComponent, AppPomodoroComponent, NavComponent, TimerComponent, DashboardComponent, SettingComponent, ProjectsComponent, AboutComponent],
+  declarations: [AppComponent, StartComponent, LandingPageCopmonent, SignInComponent, HeaderComponent, SignUpComponent, CreateAccountComponent, SignInEmailComponent, ForgotPasswordComponent, AppPomodoroComponent, NavComponent, TimerComponent, DashboardComponent, SettingComponent, ProjectsComponent, AboutComponent, ModalComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,

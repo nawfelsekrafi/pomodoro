@@ -16,6 +16,11 @@ export class SettingComponent implements OnInit {
   backgroundColor: string;
   color: string;
 
+  msg: string = "Are you sure to delete your account!";
+  buttonValue: string = "Delete";
+  display: string = "none";
+
+
   constructor(private userService: UserService) {
     this.backgroundColor = window
       .getComputedStyle(document.documentElement)
@@ -43,6 +48,7 @@ export class SettingComponent implements OnInit {
     });
   }
 
+  //this methode is used to change the sound when the working session finished;
   changeSound(soundId: number) {
     switch (soundId) {
       case 1:
@@ -95,24 +101,26 @@ export class SettingComponent implements OnInit {
     this.userService.changeUserData(this.user);
   }
 
-  deleteUser() {
-    // dialog first
-    // if yes > this.userService.deleteUser();
-    // if cancel > do nothing
-    this.openPopupDialog();
+  // this methode is used to dispaly the Modal of "delete user account confirmation"
+  deleteUserEvent() {
+    this.display = "block";
+  }
+
+  // this methode is used to update display value .. then close the Modal
+  close(event: any) {
+    if (event == "none"){
+      this.display = "none;"
+    }
     
   }
-     close() {
-      if( document.getElementById('myModal').style.display == 'block'){
-        document.getElementById('myModal').style.setProperty('display', 'none');
-      }
 
+  // this methode is used to delete user account from database
+  deleteUser(event: any){
+    if (event == true){
+      this.userService.DeleteUser();
     }
+  }
 
-    // When the user clicks the button, open the modal
-    openPopupDialog() {
-      document.getElementById('myModal').style.setProperty('display', 'block');
-    }  
-
+     
   
 }
