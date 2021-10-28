@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { User } from '../models/user';
 import { getAuth } from "firebase/auth";
 import { Observable, of, BehaviorSubject } from 'rxjs';
+import { AuthService } from './auth.service';
 
 
 @Injectable({
@@ -15,7 +16,7 @@ export class UserService {
   private userData = new BehaviorSubject<User>(this.user);
   currentUserData = this.userData.asObservable();
   
-  constructor(private fs: AngularFirestore) {}
+  constructor(private fs: AngularFirestore, private auth: AuthService) {}
 
 
   /* getUserAllData(): any {
@@ -49,6 +50,11 @@ export class UserService {
   changeUserData(user: User) {
     this.userData.next(user);
     return of(this.fs.doc(`users/${this.uid}`).set(user));
+  }
+
+  DeleteUser() {
+    this.fs.doc(`users/${this.uid}`).delete().catch(error => console.log(error)).then(() => console.log(`${this.user.uid} has been deleted.`));
+    this.auth.signOut();
   }
 
 }
