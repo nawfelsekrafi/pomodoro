@@ -7,71 +7,100 @@ import { v4 as uuidv4 } from 'uuid';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit {
-
-  newProject: string = "";
+  newProject: string = '';
   projects: Project[] = [];
-  user: User =  new User();
+  user: User = new User();
 
-  constructor(private userService: UserService) { }
+  display: string = 'none';
+  ProjectIdToModify: string = '';
+
+  newName: string = '';
+  delete: boolean = false;
+  update: boolean = false;
+
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-
     this.userService.currentUserData.subscribe((user) => {
       this.user = user;
-       if (this.user.projects){
+      if (this.user.projects) {
         this.projects = this.user.projects;
       } else {
         this.projects = [];
       }
     });
-   
-   /*
-    this.userService.getUserAllData().subscribe((data:any) => {
-      this.user =  data[0];
-      if (this.user.projects){
-        this.projects = this.user.projects;
-      } else {
-        this.projects = [];
-      }
-    });
-    */
   }
 
-  createProject(){
-    if (this.newProject != "" ) {
+  createProject() {
+    if (this.newProject != '') {
       let p = {
-        name : this.newProject,
-        TimePassed :0,
-        uid : <string>uuidv4() 
+        name: this.newProject,
+        TimePassed: 0,
+        uid: <string>uuidv4(),
       };
 
-      (<HTMLInputElement>document.getElementById("goal")).value = "";
+      (<HTMLInputElement>document.getElementById('goal')).value = '';
       this.projects.push(p);
-      
+
       this.user.projects = this.projects;
       this.userService.changeUserData(this.user);
       //this.userService.updateUserData(this.user);
-    }
-    else {
-      console.log("Please fill in with the new Project name")
+    } else {
+      console.log('Please fill in with the new Project name');
     }
   }
 
-  deleteProject(id: string){
-    this.projects = this.projects.filter(x=> x.uid != id);
-    this.user.projects =  this.projects;
-    //this.userService.updateUserData(this.user);
-    this.userService.changeUserData(this.user);
+  openDeleteModal(id: string) {
+    this.delete = true;
+    this.display = 'block';
+    document.getElementById('myModal').style.setProperty('display', 'block');
+    this.ProjectIdToModify = id;
   }
 
-  updateProjectName(id: string) {
-    let name = "*********";
-    this.projects.find(x => x.uid == id).name = name;
-    this.user.projects =  this.projects;
+  deleteProject() {
+    this.projects = this.projects.filter(
+      (x) => x.uid != this.ProjectIdToModify
+    );
+    this.user.projects = this.projects;
     //this.userService.updateUserData(this.user);
     this.userService.changeUserData(this.user);
+    this.closeModal();
+  }
+
+  openUpdateModal(id: string) {
+    this.update = true;
+    this.display = 'block';
+    document.getElementById('myModal').style.setProperty('display', 'block');
+    this.ProjectIdToModify = id;
+  }
+
+  updateProjectName() {
+    if (this.newName !== '') {
+      let name = this.newName;
+      this.projects.find((x) => x.uid == this.ProjectIdToModify).name = name;
+      this.user.projects = this.projects;
+      this.userService.changeUserData(this.user);
+      this.closeModal();
+      this.newName = '';
+    }
+  }
+
+  ngOnChanges(): void {
+    document
+      .getElementById('myModal')
+      .style.setProperty('display', this.display);
+  }
+
+  closeModal() {
+    this.display = 'none';
+    document
+      .getElementById('myModal')
+      .style.setProperty('display', this.display);
+    this.delete = false;
+    this.update = false;
+    this.newName = '';
   }
 }

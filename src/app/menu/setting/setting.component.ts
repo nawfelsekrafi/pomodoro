@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -7,7 +7,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './setting.component.html',
   styleUrls: ['./setting.component.css'],
 })
-export class SettingComponent implements OnInit {
+export class SettingComponent implements OnInit, OnChanges {
   user: User = new User();
   name: string = '';
   photoUrl: string = '';
@@ -16,8 +16,6 @@ export class SettingComponent implements OnInit {
   backgroundColor: string;
   color: string;
 
-  msg: string = "Are you sure to delete your account!";
-  buttonValue: string = "Delete";
   display: string = "none";
 
 
@@ -102,25 +100,26 @@ export class SettingComponent implements OnInit {
   }
 
   // this methode is used to dispaly the Modal of "delete user account confirmation"
-  deleteUserEvent() {
+  openModal() {
     this.display = "block";
+    document.getElementById('myModal').style.setProperty('display', 'block');
   }
 
   // this methode is used to update display value .. then close the Modal
-  close(event: any) {
-    if (event == "none"){
-      this.display = "none;"
-    }
-    
+  close() {
+      this.display = "none";
+      document.getElementById('myModal').style.setProperty('display', this.display); 
   }
 
   // this methode is used to delete user account from database
-  deleteUser(event: any){
-    if (event == true){
+  deleteUser(){
       this.userService.DeleteUser();
-    }
+      this.close();
   }
 
+  ngOnChanges () : void {
+    document.getElementById('myModal').style.setProperty('display', this.display);      
+  }
      
   
 }

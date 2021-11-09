@@ -10,8 +10,19 @@
     <li (click) = "changeSound(2)"><img id="2"  src="https://img.icons8.com/fluency-systems-filled/48/000000/musical.png"/></li>
     <li (click) = "changeSound(3)"><img id="3" src="https://img.icons8.com/fluency-systems-filled/48/000000/musical.png"/></li>
    </ul>
-   <button id="delete" (click)="deleteUserEvent()">Delete Account</button>
+   <button id="delete" (click)="openModal()">Delete Account</button>
   </main>
-  <app-modal [msg]="msg" [buttonValue]="buttonValue" [display]="display" (buttonValueEvent)="close($event)" (action)="deleteUser($event)"></app-modal>
+
+   <!-- The Modal -->
+ <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <p>Are you sure to delete your account!</p>
+    <button class="btn" (click)="deleteUser()" >Delete</button>
+    <button class="btn" (click)="close()">Cancel</button>
+  </div>
+
+</div>
 
  
