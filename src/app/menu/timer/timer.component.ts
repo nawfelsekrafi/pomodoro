@@ -121,7 +121,7 @@ export class TimerComponent implements OnInit  {
   }
   playFinishSound() {
     let audio = new Audio();
-    audio.src = '../assets/'+ this.user.setting + '.wav';
+    audio.src = '../pomoguru/assets/'+ this.user.setting + '.wav';
     audio.load();
     audio.play(); 
   }
@@ -217,7 +217,7 @@ export class TimerComponent implements OnInit  {
 
   playAudioFinishBreak() {
     let audio = new Audio();
-    audio.src = '../assets/finishBreakAudio.wav';
+    audio.src = '../pomoguru/assets/finishBreakAudio.wav';
     audio.load();
     audio.play();
   }
