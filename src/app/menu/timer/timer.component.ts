@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Project } from 'src/app/models/project';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
+import { v4 as uuidv4 } from 'uuid';
+import { WorkingSession } from 'src/app/models/working-session';
 
 
 @Component({
@@ -20,42 +25,105 @@ export class TimerComponent implements OnInit  {
   count: number = 0;
   isStop: boolean = false;
 
-  constructor() {}
+  projects: Project[] = [];
+  user: User = new User();
+  showListOfProjects:boolean = false;
+  selectedProjectId:string = '';
+  workingSessions: WorkingSession[] = [];
+
+  constructor(private userService: UserService) {}
+
+  // this methode is used to select and save a project from the drop down list
+  selectChangeHandler(event: any){
+    this.selectedProjectId = event.target.value;
+  }
 
   ngOnInit(): void {
+    this.userService.currentUserData.subscribe((user) => {
+      this.user = user;
+      if (this.user.projects) {
+        this.projects = this.user.projects;
+      } else {
+        this.projects = [];
+      }
+      if (this.user.workingSessions) {
+        this.workingSessions = this.user.workingSessions;
+      }else {
+        this.workingSessions = [];
+      }
+    });
   }
   
 
   start(): void {
-    this.isStart = true;
-    var interval = setInterval(() => {
-      if (this.time > 0) {
-        this.now++;
-        var timeleft: number = this.time - this.now;
-        var min = Math.floor(timeleft / 60);
-        this.minutes = min < 10 ? '0' + min : min.toString();
-        var sec = Math.floor(timeleft - min * 60);
-        this.seconds = sec < 10 ? '0' + sec : sec.toString();
-        if (sec == 10 && min < 1) {
-          this.playAudioFinishBreak();
-        }
-        if (
-          (min == 0 && sec == 0) ||
-          this.isPause ||
-          this.isBreakTime ||
-          this.isFocusTime
-        ) {
-          if (min == 0 && sec == 0) {
-            this.count = 1;
-            this.time = 0;
-            this.isFocusTime = true;
-            this.isSetting = true;
-            this.isStart = false;
+    // this is the logic of working time 
+    if (this.selectedProjectId !== '' && this.showListOfProjects){
+      this.isStart = true;
+      var interval = setInterval(() => {
+        if (this.time > 0) {
+          this.now++;
+          var timeleft: number = this.time - this.now;
+          var min = Math.floor(timeleft / 60);
+          this.minutes = min < 10 ? '0' + min : min.toString();
+          var sec = Math.floor(timeleft - min * 60);
+          this.seconds = sec < 10 ? '0' + sec : sec.toString();
+          if (sec == 11 && min < 1) {
+            this.playAudioFinishBreak();
           }
-          clearInterval(interval);
+          if ((min == 0 && sec == 0) ||this.isPause || this.isBreakTime || this.isFocusTime
+          ) {
+            if (min == 0 && sec == 0) {              
+              this.saveWorkingSession();
+              this.playFinishSound();
+              this.count = 1;
+              this.time = 0;
+              this.isFocusTime = true;
+              this.isSetting = true;
+              this.isStart = false;
+            }
+            clearInterval(interval);
+          }
         }
-      }
-    }, 1000);
+      }, 1000);
+    }else if (this.showListOfProjects) {
+      console.log("please select a project")
+    }
+    // this is the logic of break time 
+    else {
+      this.isStart = true;
+      var interval = setInterval(() => {
+        if (this.time > 0) {
+          this.now++;
+          var timeleft: number = this.time - this.now;
+          var min = Math.floor(timeleft / 60);
+          this.minutes = min < 10 ? '0' + min : min.toString();
+          var sec = Math.floor(timeleft - min * 60);
+          this.seconds = sec < 10 ? '0' + sec : sec.toString();
+          if (sec == 11 && min < 1) {
+            this.playAudioFinishBreak();
+          }
+          if ((min == 0 && sec == 0) ||this.isPause || this.isBreakTime || this.isFocusTime
+          ) {
+            if (min == 0 && sec == 0) {              
+              this.playFinishSound();
+              this.count = 1;
+              this.time = 0;
+              this.isFocusTime = true;
+              this.isSetting = true;
+              this.isStart = false;
+            }
+            clearInterval(interval);
+          }
+        }
+      }, 1000);
+    }
+
+  }
+  playFinishSound() {
+    let audio = new Audio();
+    audio.src = '../assets/'+ this.user.setting + '.wav';
+    audio.load();
+    audio.play(); 
   }
 
   pause(): void {
@@ -112,6 +180,7 @@ export class TimerComponent implements OnInit  {
     this.isBreakTime = false;
     this.isStop = true;
     this.isSetting = true;
+    this.selectedProjectId ='';
   }
 
   back() {
@@ -123,6 +192,7 @@ export class TimerComponent implements OnInit  {
     this.isBreakTime = false;
     this.isSetting = true;
     this.isFocusTime = true;
+    this.selectedProjectId ='';
   }
 
   next() {
@@ -131,6 +201,7 @@ export class TimerComponent implements OnInit  {
     this.isSetting = false;
     this.isStart = false;
     this.isBreakTime = false;
+    this.showListOfProjects = true;
   }
 
   cancel() {
@@ -141,6 +212,7 @@ export class TimerComponent implements OnInit  {
     this.now = 0;
     this.isFocusTime = false;
     this.isBreakTime = true;
+    this.selectedProjectId ='';
   }
 
   playAudioFinishBreak() {
@@ -150,6 +222,25 @@ export class TimerComponent implements OnInit  {
     audio.play();
   }
 
+  saveWorkingSession() {
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date+' '+time;
 
+    let ws = {
+      id: <string>uuidv4(),
+      date: dateTime,
+      projectId: this.selectedProjectId,
+      delay: this.count
+    };
+    this.workingSessions.push(ws);
+    this.user.workingSessions = this.workingSessions;
+    this.projects.find((x) => x.uid == this.selectedProjectId).TimePassed += this.count;
+    this.user.projects = this.projects;
+    this.userService.changeUserData(this.user);
+  }
 
 }
+
+

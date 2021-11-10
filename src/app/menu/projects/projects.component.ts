@@ -65,7 +65,6 @@ export class ProjectsComponent implements OnInit {
       (x) => x.uid != this.ProjectIdToModify
     );
     this.user.projects = this.projects;
-    //this.userService.updateUserData(this.user);
     this.userService.changeUserData(this.user);
     this.closeModal();
   }

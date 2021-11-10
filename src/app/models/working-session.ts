@@ -1,6 +1,6 @@
 export class WorkingSession {
-    id?: number;
-    date: Date;
-    projectId: number;
+    id?: string;
+    date: string;
+    projectId: string;
     delay: number;
 }

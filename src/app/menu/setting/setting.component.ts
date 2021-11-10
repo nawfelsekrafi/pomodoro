@@ -36,7 +36,7 @@ export class SettingComponent implements OnInit, OnChanges {
       if (this.user.setting) {
         this.setting = this.user.setting;
         document
-          .getElementById(this.setting.toString())
+          .getElementById(<string><any>this.setting)
           .style.setProperty('background-color', this.color);
       } else {
         this.user.setting = 1;
