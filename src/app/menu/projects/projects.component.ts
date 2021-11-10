@@ -102,4 +102,5 @@ export class ProjectsComponent implements OnInit {
     this.update = false;
     this.newName = '';
   }
+
 }

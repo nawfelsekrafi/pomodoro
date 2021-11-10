@@ -47,13 +47,3 @@ footer {
     text-align: center;
 }
 
-@media only screen and (max-width: 508px) {
-   #welcome-section {
-     display: flex;
-     flex-direction: column;
-   }
-   #illustration-1 {
-     z-index: 1;
-   }
-  
-}
