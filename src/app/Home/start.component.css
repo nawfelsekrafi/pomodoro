@@ -13,3 +13,11 @@
     margin-top: 110px;
     margin-bottom: -110px;
 }
+
+@media only screen and (max-width: 590px) {
+    .theme-switch{
+      margin-top: 15px;
+      margin-bottom: 17px;
+    }
+  }
+  

@@ -112,3 +112,14 @@ input:focus {
   width: 77%;
   margin: 8px 5px 8px 5px;
 }
+
+@media only screen and (max-width: 590px) {
+  #add-project-card{
+    margin: 0px 19% 50px 19%;
+  }
+}
+@media only screen and (max-width: 425px) {
+ input {
+   width: 100%;
+ }
+}
