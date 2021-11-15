@@ -40,3 +40,12 @@
     font-weight: normal;
     color: var(--guide-color);
 }
+
+@media only screen and (max-width: 590px) {
+    #top-about, #bottom-about {
+        width: 76%;
+        margin-right: 19%;
+        margin-left: 19%;
+        margin-top: 50px;
+      }
+  }

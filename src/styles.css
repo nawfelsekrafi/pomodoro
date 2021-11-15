@@ -214,9 +214,9 @@ input {
 }
 
 @media only screen and (max-width: 425) {
-    #time{
-        font-size: 2em;
-    }
+  #time {
+    font-size: 2em;
+  }
 }
 
 @media only screen and (max-width: 590px) {
@@ -226,19 +226,31 @@ input {
     margin-left: 19%;
     margin-top: 50px;
   }
-  #time{
+  #time {
     font-size: 2em;
-}
+  }
+  #bottom-title {
+    padding-right: 0px;
+  }
+  #cancel {
+    display: none;
+  }
+  .deleteAccount {
+    width: 90%;
+  }
 }
 
 @media only screen and (max-width: 356px) {
   .sign-button {
     width: 100%;
   }
+  .deleteAccount {
+    width: 90%;
+  }
   input {
     width: 90%;
   }
-  #time{
+  #time {
     font-size: 1em;
-}
+  }
 }

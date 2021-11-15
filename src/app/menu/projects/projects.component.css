@@ -118,6 +118,7 @@ input:focus {
     margin: 0px 19% 50px 19%;
   }
 }
+
 @media only screen and (max-width: 425px) {
  input {
    width: 100%;
