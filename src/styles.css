@@ -75,7 +75,7 @@ svg:hover,
   cursor: pointer;
 }
 
-#cancel {
+#cancel , #delete__Button{
   width: 20px;
   float: right;
   padding: 31px 0px 0px 255px;
