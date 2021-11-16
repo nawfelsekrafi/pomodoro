@@ -15,6 +15,10 @@ export class StartComponent implements OnInit {
   about: boolean = false;
   projects: boolean = true;
 
+  toggleSwitch: any = document.querySelector(
+    '.theme-switch input[type="checkbox"]'
+  );
+
   constructor(private userService: UserService) {
 
     var currentTheme = localStorage.getItem('theme')
@@ -28,21 +32,19 @@ export class StartComponent implements OnInit {
     }
   }
 
-  toggleSwitch: any = document.querySelector(
-    '.theme-switch input[type="checkbox"]'
-  );
+ 
 
   day: boolean = true;
 
   switchTheme(e: any) {
     if (e.target.checked) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      this.day= false;
-      localStorage.setItem('theme', 'dark');
-    } else {
       document.documentElement.setAttribute('data-theme', 'light');
       localStorage.setItem('theme', 'light');
       this.day = true;
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      this.day= false;
+      localStorage.setItem('theme', 'dark');
     }
   }
 
