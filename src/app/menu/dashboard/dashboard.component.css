@@ -1,0 +1,15 @@
+.note {
+  background-image: url("../../../assets/boy.jpg");
+  color: rgb(136, 150, 239);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  width: 100vw;
+  height: 100vh;
+  margin: 0px 0px;
+}
+p {
+  padding: 24px 0px 0px 50px;
+  color: var(--guide-color);
+  text-align: center;
+}
