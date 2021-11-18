@@ -10,10 +10,10 @@ import { UserService } from '../services/user.service';
 export class StartComponent implements OnInit {
 
   dashboard: boolean = false;
-  timer: boolean = false;
+  timer: boolean = true;
   settings: boolean = false;
   about: boolean = false;
-  projects: boolean = true;
+  projects: boolean = false;
 
   toggleSwitch: any = document.querySelector(
     '.theme-switch input[type="checkbox"]'
@@ -32,19 +32,17 @@ export class StartComponent implements OnInit {
     }
   }
 
- 
-
   day: boolean = true;
 
   switchTheme(e: any) {
     if (e.target.checked) {
-      document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'light');
-      this.day = true;
-    } else {
       document.documentElement.setAttribute('data-theme', 'dark');
       this.day= false;
       localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+      this.day = true;
     }
   }
 

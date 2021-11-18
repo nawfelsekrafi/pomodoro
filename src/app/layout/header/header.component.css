@@ -44,6 +44,25 @@ body {
     display: flex;
     position: fixed;
     right: 0;
-    margin-right: 10px;
+    margin-right: 29px;
   }
+
+  @media only screen and (max-width: 354px) {
+    #sign {
+      margin-right: 10px;
+    }
+    #top-title {
+      padding: 0px 0px 0px 10px;
+    }
+  }
+
+  @media only screen and (max-width: 320px) {
+    #sign {
+      margin-right: 5px;
+    }
+    #top-title {
+      padding: 0px 0px 0px 5px;
+    }
+  }
+
   
