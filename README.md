@@ -9,6 +9,7 @@ starting with the Pomodoro Timer then the project get bigger and I ended up addi
 * Managing accounts.</p> That is it 😀😊 this is the story behind MY Project POMODORO 😁
 I hope it will be useful ..
 <h3>
- - Docs and demo 💎: <a src="https://nawfelsekrafi.github.io/pomodoro-doc/" target="_blank"> Click Me 😁</a> 
+ - Docs and demo 💎:  
  </h3>
+ <p>https://nawfelsekrafi.github.io/pomodoro-doc/</p>
 
