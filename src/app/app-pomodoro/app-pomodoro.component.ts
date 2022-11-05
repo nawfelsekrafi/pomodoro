@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppPomodoroComponent implements OnInit {
 
-  loggedIn: boolean=false;
+  loggedIn: boolean = false;
   constructor() { }
 
   ngOnInit(): void {

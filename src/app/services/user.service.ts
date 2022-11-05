@@ -18,16 +18,6 @@ export class UserService {
   
   constructor(private fs: AngularFirestore, private auth: AuthService) {}
 
-
-  /* getUserAllData(): any {
-    const auth = getAuth();
-    const user = auth.currentUser;
-    if (user !== null) {
-      this.uid = user.uid;
-    }
-    return this.fs.collection("users", ref => ref.where("uid", "==", this.uid)).valueChanges();
-  } */
-
   gotUserAllData() {
     // this is for getting the id of the current Logged User 
     const auth = getAuth();
@@ -42,10 +32,6 @@ export class UserService {
   });
 
 }
-  /*
-  updateUserData(user : User): Observable<any> {
-    return of(this.fs.doc(`users/${this.uid}`).set(user));
-  } */
 
   changeUserData(user: User) {
     this.userData.next(user);

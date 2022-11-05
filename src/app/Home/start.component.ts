@@ -8,12 +8,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./start.component.css'],
 })
 export class StartComponent implements OnInit {
-
-  dashboard: boolean = false;
-  timer: boolean = true;
-  settings: boolean = false;
-  about: boolean = false;
-  projects: boolean = false;
+  currentPage: String = 'timer';
 
   toggleSwitch: any = document.querySelector(
     '.theme-switch input[type="checkbox"]'
@@ -53,39 +48,19 @@ export class StartComponent implements OnInit {
   changePage(event: any){
     switch(event) {
       case "dashboard":
-        this.dashboard = true;
-        this.timer = false;
-        this.about = false;
-        this.projects = false;
-        this.settings = false;
+        this.currentPage = 'dashboard';
         break;
       case "settings":
-        this.dashboard = false;
-        this.timer = false;
-        this.about = false;
-        this.projects = false;
-        this.settings = true;
+        this.currentPage = 'settings';
         break;
       case "about":
-        this.dashboard = false;
-        this.timer = false;
-        this.about = true;
-        this.projects = false;
-        this.settings = false;
+        this.currentPage = 'about';
         break;
       case "projects":
-        this.dashboard = false;
-        this.timer = false;
-        this.about = false;
-        this.projects = true;
-        this.settings = false;
+        this.currentPage = 'projects';
         break;
       case "timer":
-        this.dashboard = false;
-        this.timer = true;
-        this.about = false;
-        this.projects = false;
-        this.settings = false;
+        this.currentPage = 'timer';
         break;
     }
   }

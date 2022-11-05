@@ -7,8 +7,8 @@
 
 </div>
 
-<app-dashboard *ngIf="dashboard"></app-dashboard>
-<app-projects *ngIf="projects"></app-projects>
-<app-timer *ngIf="timer"></app-timer>
-<app-setting *ngIf="settings"></app-setting>
-<app-about *ngIf="about"></app-about>
+<app-dashboard *ngIf="currentPage == 'dashboard'" ></app-dashboard>
+<app-projects *ngIf="currentPage == 'projects'"></app-projects>
+<app-timer *ngIf="currentPage == 'timer'"></app-timer>
+<app-setting *ngIf="currentPage == 'settings'"></app-setting>
+<app-about *ngIf="currentPage == 'about'"></app-about>
